@@ -1,0 +1,63 @@
+#container {
+  text-align: center;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #8c8c8c;
+
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
+
+ion-icon {
+
+  color : #4993b6;
+}
+
+.custom-fab-button {
+  --width: 180px; /* Ajusta según el tamaño que desees */
+  --height: 180px;
+  --border-radius: 140px; /* Hace que el botón sea circular */
+  --icon-size: 140px; /* Ajusta el tamaño del icono */
+}
+
+
+
+
+#qrImage{
+  padding: 20px 0;
+}
+
+.qr-wrapper{
+  width: 230px; 
+  min-height: 230px;
+  border: #4993b6;
+}
+
+.qr-placeholder{
+  width: 60px; 
+}
+
+.d-flex-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

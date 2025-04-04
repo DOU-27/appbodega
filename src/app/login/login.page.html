@@ -1,0 +1,38 @@
+<app-base></app-base>
+
+<ion-content>
+
+  <div class="login">
+
+    <div class="login-encabezado">
+      <h1 class="login-titulo">
+        Bienvenido a la APP de SUNI
+      </h1> 
+
+      <h3 class="sub-titulo-login">
+        Escanea tu token de acceso
+      </h3>
+      <p class="texto-login">
+        ¡Inicia sesion para poder empezar a usar la APP!
+      </p>
+    </div>
+
+    <div class="d-flex-center login-img">
+      <img  src="assets/img/codigo-qr.gif" alt="Escaner de QR">
+    </div>
+
+
+    <div class="boton-login">
+      <button (click)="escanertoken()" class="submit button login-boton" >
+        ¡Escanea aqui! 
+        <ion-icon slot="end" name="scan-circle-outline"></ion-icon>
+      </button>
+    </div>
+
+    <div class="info-link" (click)="mostrarInfoToken()">
+      ¿Dónde ver mi token?
+    </div>
+    
+  </div>
+
+</ion-content>

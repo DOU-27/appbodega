@@ -1,0 +1,18 @@
+.header-container {
+    display: flex;
+    justify-content: center;    // Centra horizontalmente
+    align-items: end;           // Centra verticalmente
+    height: auto;               // Ajusta la altura del contenedor según sea necesario
+    background-color: "funsepa"; // Color de fondo para el header (como en tu imagen)
+  }
+  
+  .logo {
+    max-width: 45%;  // Asegura que la imagen no se salga del contenedor
+    height: auto;
+  }
+  /* En el archivo CSS del componente o en el archivo global */
+.content-background {
+  --background: #ffffff; /* Fondo gris claro */
+}
+
+
