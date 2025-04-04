@@ -1,0 +1,111 @@
+.login{
+    text-align: center;
+}
+
+
+
+.login-titulo{
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+ion-content {
+    --background: #ffffff; /* o el color que uses */
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.login {
+    width: 100%;
+    max-width: 500px; /* opcional para centrar mejor en pantallas grandes */
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    margin: 0 auto;
+}
+  
+.login-encabezado {
+    margin-bottom: 20px;
+}
+  
+.boton-login {
+    margin: 20px 0;
+}
+  
+.info-link {
+    margin-top: 150px;
+    color: #016dd9;
+    cursor: pointer;
+    text-decoration: underline;
+    position: sticky; 
+}
+
+.login-img{
+  width: 250px; 
+  min-height: 250px;
+  border: #4993b6;
+  margin: 0 auto;
+}
+  
+.button {
+    height: 2.8em;
+    width: 9em;
+    background: transparent;
+    -webkit-animation: jello-horizontal 0.9s both;
+    animation: jello-horizontal 0.9s both;
+    border: 2px solid #016dd9;
+    outline: none;
+    color: #016dd9;
+    cursor: pointer;
+    font-size: 17px;
+  }
+  
+  .button:hover {
+    background: #016dd9;
+    color: #ffffff;
+    animation: squeeze3124 0.9s both;
+  }
+  
+  @keyframes squeeze3124 {
+    0% {
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1);
+    }
+  
+    30% {
+      -webkit-transform: scale3d(1.25, 0.75, 1);
+      transform: scale3d(1.25, 0.75, 1);
+    }
+  
+    40% {
+      -webkit-transform: scale3d(0.75, 1.25, 1);
+      transform: scale3d(0.75, 1.25, 1);
+    }
+  
+    50% {
+      -webkit-transform: scale3d(1.15, 0.85, 1);
+      transform: scale3d(1.15, 0.85, 1);
+    }
+  
+    65% {
+      -webkit-transform: scale3d(0.95, 1.05, 1);
+      transform: scale3d(0.95, 1.05, 1);
+    }
+  
+    75% {
+      -webkit-transform: scale3d(1.05, 0.95, 1);
+      transform: scale3d(1.05, 0.95, 1);
+    }
+  
+    100% {
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1);
+    }
+  }
+  

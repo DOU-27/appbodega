@@ -1,0 +1,249 @@
+<app-base></app-base>
+
+<ion-content>
+  <ion-segment [(ngModel)]="segmento" class="ion-text-center">
+    
+    <ion-segment-button value="Dispositivo">
+      <ion-icon name="qr-code-outline">Dispositivo</ion-icon>
+      <ion-label>Dispositivo</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="Tarima">
+      <ion-icon name="apps-outline"></ion-icon>
+      <ion-label>Tarima</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="Lista">
+      <ion-icon name="apps-outline"></ion-icon>
+      <ion-label>Actualizar</ion-label>
+    </ion-segment-button>
+
+  </ion-segment>
+
+
+  <div *ngIf="segmento === 'Dispositivo'">  
+    <div class="segment-content">
+      <div class="d-flex-center">
+        <div class="d-flex-center qr-wrapper">
+          <img src="assets/img/codigo-qr.gif" alt="">
+        </div>
+      </div>
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="12" class="ion-text-center">
+          <ion-button (click)="escanerdispositivo()" class="submit">
+            Escanear Triage 
+            <ion-icon slot="end" name="scan-circle-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      
+      <div *ngIf="dispositivoData" class="container mt-4">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Datos del Dispositivo</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <div class="table-responsive">
+              <table class="table table-striped table-bordered">
+                <tbody>
+                  <tr>
+                    <th>Triage</th>
+                    <td>{{ dispositivoData.triage }}</td>
+                  </tr>
+                  <tr>
+                    <th>Tarima</th>
+                    <td>{{ dispositivoData.tarima || 'N/A' }}</td>
+                  </tr>
+                  <tr>
+                    <th>Tipo</th>
+                    <td>{{ dispositivoData.tipo }}</td>
+                  </tr>
+                  <tr>
+                    <th>Entrada</th>
+                    <td>{{ dispositivoData.entrada }}</td>
+                  </tr>
+                  <tr>
+                    <th>Estado</th>
+                    <td>{{ dispositivoData.estado }}</td>
+                  </tr>
+                  <tr>
+                    <th>Etapa</th>
+                    <td>{{ dispositivoData.etapa }}</td>
+                  </tr>
+                  <tr>
+                    <th>Marca</th>
+                    <td>{{ dispositivoData.marca }}</td>
+                  </tr>
+                  <tr>
+                    <th>Modelo</th>
+                    <td>{{ dispositivoData.modelo }}</td>
+                  </tr>
+                  <tr *ngIf="dispositivoData.puerto">
+                    <th>Puerto</th>
+                    <td>{{ dispositivoData.puerto }}</td>
+                  </tr>
+                  <tr *ngIf="dispositivoData.serie">
+                    <th>Serie</th>
+                    <td>{{ dispositivoData.serie || 'N/A' }}</td>
+                  </tr>
+                  <tr *ngIf="dispositivoData.clase">
+                    <th>Clase</th>
+                    <td>{{ dispositivoData.clase }}</td>
+                  </tr>
+                  <tr *ngIf="dispositivoData.procesador">
+                    <th>Procesador</th>
+                    <td>{{ dispositivoData.procesador || 'N/A' }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </div>
+      
+    </div>
+  </div>
+  
+
+
+<!-- Tarima -->
+<div *ngIf="segmento === 'Tarima'">  
+  <div class="segment-content">
+    <div class="d-flex-center">
+      <div class="d-flex-center qr-wrapper">
+        <img src="assets/img/codigo-qr.gif" alt="">
+      </div>
+    </div>
+
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" class="ion-text-center">
+        <ion-button (click)="escanerTarima()" class="submit">
+          Escanear QR Tarimas
+          <ion-icon slot="end" name="scan-circle-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <!-- Lista de dispositivos -->
+    <div *ngIf="dispositivoData.length > 0" class="container mt-4">
+      <ion-card *ngFor="let dispositivo of dispositivoData">
+        <ion-card-header>
+          <ion-card-title>Datos del Dispositivo</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <table class="table table-striped table-bordered">
+            <tbody>
+              <tr>
+                <th>Triage</th>
+                <td>{{ dispositivo.triage }}</td>
+              </tr>
+              <tr>
+                <th>Tipo</th>
+                <td>{{ dispositivo.tipo }}</td>
+              </tr>
+              <tr>
+                <th>Entrada</th>
+                <td>{{ dispositivo.entrada }}</td>
+              </tr>
+              <tr>
+                <th>Estado</th>
+                <td>{{ dispositivo.estado }}</td>
+              </tr>
+              <tr>
+                <th>Etapa</th>
+                <td>{{ dispositivo.etapa }}</td>
+              </tr>
+              <tr>
+                <th>Marca</th>
+                <td>{{ dispositivo.marca }}</td>
+              </tr>
+              <tr>
+                <th>Modelo</th>
+                <td>{{ dispositivo.modelo }}</td>
+              </tr>
+              <tr>
+                <th>Puerto</th>
+                <td>{{ dispositivo.puerto || 'N/A' }}</td>
+              </tr>
+              <tr>
+                <th>Serie</th>
+                <td>{{ dispositivo.serie || 'N/A' }}</td>
+              </tr>
+              <tr>
+                <th>Clase</th>
+                <td>{{ dispositivo.clase }}</td>
+              </tr>
+              <tr>
+                <th>Tarima</th>
+                <td>{{ dispositivo.tarima }}</td>
+              </tr>
+              <tr>
+                <th>Procesador</th>
+                <td>{{ dispositivo.procesador }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+  </div>
+</div> 
+
+
+
+
+<!-- Lista -->
+ <div *ngIf="segmento === 'Lista'">  
+  <div class="segment-content">
+
+    <div class="d-flex-center">
+      <div class="d-flex-center qr-wrapper">
+        <img src="assets/img/codigo-qr.gif" alt="">
+        <h5> P R U E B A S</h5>
+      </div>
+    </div>
+    
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" class="ion-text-center">
+        <ion-button (click)="escanerDispositivoLista()" class="submit">
+          Escanear Triage
+          <ion-icon slot="end" name="scan-circle-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+
+      <ion-col size="12" class="ion-text-center">
+        <ion-button (click)="ingresarTarima()" class="submit">
+          Ingresar Número de Tarima
+          <ion-icon slot="end" name="clipboard-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+
+      <ion-col size="12" class="ion-text-center">
+        <ion-button (click)="actualizarDispositivos()" class="submit" color="success">
+          Actualizar Dispositivos
+          <ion-icon slot="end" name="cloud-upload-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <div *ngIf="dispositivosAActualizar.length > 0">
+      <h3>Dispositivos Escaneados:</h3>
+      <ion-list>
+        <ion-item *ngFor="let dispositivo of dispositivosAActualizar">
+          <ion-label>{{ dispositivo.triage }} - {{ dispositivo.tipo }}</ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <div *ngIf="tarimaDestino">
+      <h3>Tarima Seleccionada:</h3>
+      <p>{{ tarimaDestino }}</p>
+    </div>
+
+  </div>
+</div>
+
+</ion-content>
+
+

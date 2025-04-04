@@ -1,0 +1,38 @@
+// For information on how to create your own theme, please see:
+// http://ionicframework.com/docs/theming/
+:root {
+	--ion-color-funsepa: #4390b9;
+	--ion-color-funsepa-rgb: 67,144,185;
+	--ion-color-funsepa-contrast: #000000;
+	--ion-color-funsepa-contrast-rgb: 0,0,0;
+	--ion-color-funsepa-shade: #3b7fa3;
+	--ion-color-funsepa-tint: #569bc0;
+}
+
+.ion-color-funsepa {
+	--ion-color-base: var(--ion-color-funsepa);
+	--ion-color-base-rgb: var(--ion-color-funsepa-rgb);
+	--ion-color-contrast: var(--ion-color-funsepa-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-funsepa-contrast-rgb);
+	--ion-color-shade: var(--ion-color-funsepa-shade);
+	--ion-color-tint: var(--ion-color-funsepa-tint);
+}
+
+// Hide all elements
+body.barcode-scanner-active {
+	visibility: hidden;
+	--background: transparent;
+	--ion-background-color: transparent;
+  }
+  
+  // Show only the barcode scanner modal
+  .barcode-scanner-modal {
+	visibility: visible;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+	.barcode-scanner-modal {
+	  --background: transparent;
+	  --ion-background-color: transparent;
+	}
+  }
