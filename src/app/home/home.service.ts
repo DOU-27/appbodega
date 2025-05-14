@@ -13,7 +13,8 @@ import { HttpHeaders } from '@angular/common/http';
 export class HomeService {
   private apiUrlDispositivo = 'https://suni.funsepa.org/i/api/dispositivoapp/?id=';
   private apiUrlTarima = 'https://suni.funsepa.org/i/api/dispositivo/?tarima=';
-  private apiUrledit = 'https://suni.funsepa.org/i/api/dispositivos/app/actualizar_dispositivos/';
+  private apiUrledit = 'https://suni.funsepa.org/i/dispositivo/app/actualizar_dispositivos/';
+  
 
   constructor(private http: HttpClient) {}
 
@@ -41,19 +42,17 @@ export class HomeService {
   
 
     // 🔍 Imprimir datos antes de enviarlos
-    console.log("Desde service:");
     console.log("📤 Datos que se enviarán a la API:", JSON.stringify(data, null, 2));
 
 
-    // Ahora se usa POST en lugar de PUT
+
     return this.http.post<any>(this.apiUrledit, data, { headers }).pipe(
       catchError((error: HttpErrorResponse) => {
         console.error('Error actualizando el dispositivo:', error);
         let errorMessage = 'Error al actualizar el dispositivo.';
         
-        // Captura detalles del error
+
         if (error.error instanceof ErrorEvent) {
-          // Error del cliente (red, etc.)
           errorMessage = `Error en la solicitud: ${error.error.message}`;
         } else {
           // Error de la respuesta HTTP (código de estado, etc.)
@@ -65,9 +64,5 @@ export class HomeService {
     );
   }
   
-
-
-  
-
 
 }
