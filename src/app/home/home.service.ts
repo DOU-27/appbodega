@@ -13,9 +13,7 @@ import { HttpHeaders } from '@angular/common/http';
 export class HomeService {
   private apiUrlDispositivo = 'https://suni.funsepa.org/i/api/dispositivoapp/?id=';
   private apiUrlTarima = 'https://suni.funsepa.org/i/api/dispositivo/?tarima=';
-  // private apiUrlDispositivo = 'https://436f-181-189-154-68.ngrok-free.app/i/api/dispositivoapp/?id=';
-  // private apiUrlTarima = 'https://436f-181-189-154-68.ngrok-free.app/i/api/dispositivo/?tarima=';
-  private apiUrledit = 'https://8b7f-181-189-154-68.ngrok-free.app/i/api/dispositivos/app/actualizar_dispositivos_app/';
+  private apiUrledit = 'https://suni.funsepa.org/i/api/dispositivos/app/actualizar_dispositivos/';
 
   constructor(private http: HttpClient) {}
 

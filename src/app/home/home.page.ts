@@ -132,18 +132,30 @@ async escanerTarima(): Promise<void> {
 
     try {
       const parsedData = JSON.parse(scannedData);
+
+      // Validación del contenido del QR
+      if (!parsedData || typeof parsedData !== 'object' || Array.isArray(parsedData) || !parsedData.id) {
+        this.presentAlert('Error', 'Tarima vacía o inválida.');
+        return;
+      }
+
       this.scanTarima = parsedData.id;
       console.log("El id es: " + this.scanTarima);
 
       if (this.scanTarima) {
         console.log("Ionic Empieza rastreo");
-        console.log("Ionic " + parsedData);
+        console.log("Ionic ", parsedData);
 
         this.dispositivoService.getTarimaById(this.scanTarima).subscribe(
           (data) => {
-            // Almacenar todos los dispositivos en el array
-            this.dispositivoData = Array.isArray(data) ? data : [data]; 
+            // Asegurar que sea un array siempre
+            this.dispositivoData = Array.isArray(data) ? data : [data];
             console.log(this.dispositivoData);
+
+            // Si el array está vacío, mostrar alerta
+            if (!this.dispositivoData || this.dispositivoData.length === 0) {
+              this.presentAlert('Advertencia', 'Esta tarima no contiene dispositivos.');
+            }
           },
           (error) => {
             console.error('Error al obtener los datos de la tarima:', error);
@@ -154,11 +166,13 @@ async escanerTarima(): Promise<void> {
     } catch (error) {
       console.log("Dentro del catch");
       console.error('QR inválido:', error);
+      this.presentAlert('Error', 'El código QR no tiene un formato válido.');
     }
   } else {
     this.scanTarima = null;
   }
 }
+
 
 
   async presentErrorAlert(): Promise<void> {
