@@ -143,12 +143,9 @@ async escanerTarima(): Promise<void> {
       console.log("El id es: " + this.scanTarima);
 
       if (this.scanTarima) {
-        console.log("Ionic Empieza rastreo");
-        console.log("Ionic ", parsedData);
 
         this.dispositivoService.getTarimaById(this.scanTarima).subscribe(
           (data) => {
-            // Asegurar que sea un array siempre
             this.dispositivoData = Array.isArray(data) ? data : [data];
             console.log(this.dispositivoData);
 

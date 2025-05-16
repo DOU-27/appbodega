@@ -125,6 +125,10 @@
     </ion-row>
 
     <!-- Lista de dispositivos -->
+    <div>
+      <h3> Numero de dispositivos: {{dispositivoData.length}}</h3>
+    </div>
+
     <div *ngIf="dispositivoData.length > 0" class="container mt-4">
       <ion-card *ngFor="let dispositivo of dispositivoData">
         <ion-card-header>
@@ -205,21 +209,19 @@
     
     <ion-row class="ion-justify-content-center">
       <ion-col size="12" class="ion-text-center">
-        <ion-button (click)="escanerDispositivoLista()" class="submit">
+        <ion-button (click)="escanerDispositivoLista()" class="submit" style="width: 200px;">
           Escanear Triage
-          <ion-icon slot="end" name="scan-circle-outline"></ion-icon>
         </ion-button>
       </ion-col>
 
       <ion-col size="12" class="ion-text-center">
-        <ion-button (click)="ingresarTarima()" class="submit">
+        <ion-button (click)="ingresarTarima()" class="submit" style="width: 200px;">
           Ingresar Número de Tarima
-          <ion-icon slot="end" name="clipboard-outline"></ion-icon>
         </ion-button>
       </ion-col>
 
       <ion-col size="12" class="ion-text-center">
-        <ion-button (click)="actualizarDispositivos()" class="submit" color="success">
+        <ion-button (click)="actualizarDispositivos()" class="submit" color="success" style="width: 200px;">
           Actualizar Dispositivos
           <ion-icon slot="end" name="cloud-upload-outline"></ion-icon>
         </ion-button>
